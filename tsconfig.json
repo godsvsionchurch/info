@@ -20,8 +20,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
-    /* Linting */
-    "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
