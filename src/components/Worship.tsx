@@ -8,7 +8,6 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     "pdfjs-dist/build/pdf.worker.min.js",
     import.meta.url
 ).toString();
-
 export const Worship = () => {
     const [numPages, setNumPages] = useState<number>();
     const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
@@ -18,7 +17,7 @@ export const Worship = () => {
         <SizeMe monitorHeight refreshRate={128} refreshMode={"debounce"}>
             {({ size }) => (
                 <Document
-                    file="https://raw.githubusercontent.com/chanyoungs/gvc-worship/main/Worship.pdf"
+                    file="https://raw.githubusercontent.com/godsvsionchurch/worship/main/Worship.pdf"
                     onLoadSuccess={onDocumentLoadSuccess}
                 >
                     {Array(numPages)
