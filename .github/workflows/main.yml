@@ -1,5 +1,8 @@
 name: github pages
 
+permissions:
+  contents: write
+
 on:
     push:
         branches:
@@ -14,10 +17,10 @@ jobs:
         - name: Setup Node
           uses: actions/setup-node@v3
           with:
-                node-version: '14'
+                node-version: '21'
         
-        - run: git config --global user.email "chanyoungs@gmail.com"
-        - run: git config --global user.name "chanyoungs"
+        # - run: git config --global user.email "chan@livingoptics.com"
+        # - run: git config --global user.name "chan"
 
         - name: NPM install
           run: npm install
