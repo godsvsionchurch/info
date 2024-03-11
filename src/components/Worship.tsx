@@ -17,7 +17,7 @@ export const Worship = () => {
         <SizeMe monitorHeight refreshRate={128} refreshMode={"debounce"}>
             {({ size }) => (
                 <Document
-                    file="https://raw.githubusercontent.com/godsvsionchurch/worship/main/Worship.pdf"
+                    file="https://raw.githubusercontent.com/godsvsionchurch/worship/main/worship.html"
                     onLoadSuccess={onDocumentLoadSuccess}
                 >
                     {Array(numPages)
