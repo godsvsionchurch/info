@@ -2,7 +2,7 @@ import React from "react";
 import { SizeMe } from "react-sizeme";
 
 export const Worship: React.FC = () => {
-  const src = "https://docs.google.com/document/d/e/2PACX-1vTAW8-9o_60X1wj-tEuc2lEU8FEF9wwry1-_lQXEmuekEaTcu0wF9NpIBePnFoVAQQWGwD7toF2prew/pub?embedded=true";
+  const src = "https://docs.google.com/document/d/e/2PACX-1vSXBxKugrhH52Z9BQxrgzxR6Uv8wUjfiTULXAQ9c-tsVyMsOeWhWiiSy5GCCgo7FjDPgsIx9IR7OPb9/pub?embedded=true";
 
   return (
     <SizeMe monitorHeight refreshRate={128} refreshMode="debounce">
