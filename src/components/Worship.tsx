@@ -1,38 +1,30 @@
 import React from "react";
-import { useState } from "react";
-import { pdfjs, Document, Page } from "react-pdf";
 import { SizeMe } from "react-sizeme";
-import "pdfjs-dist/build/pdf.worker.entry";
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-    "pdfjs-dist/build/pdf.worker.min.js",
-    import.meta.url
-).toString();
-export const Worship = () => {
-    const [numPages, setNumPages] = useState<number>();
-    const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
-        setNumPages(numPages);
-    };
-    return (
-        <SizeMe monitorHeight refreshRate={128} refreshMode={"debounce"}>
-            {({ size }) => (
-                <Document
-                    file="https://raw.githubusercontent.com/godsvsionchurch/worship/main/Worship.pdf"
-                    onLoadSuccess={onDocumentLoadSuccess}
-                >
-                    {Array(numPages)
-                        .fill(null)
-                        .map((_, pageZeroIndex) => (
-                            <Page
-                                key={pageZeroIndex}
-                                pageNumber={pageZeroIndex + 1}
-                                renderTextLayer={false}
-                                renderAnnotationLayer={false}
-                                width={size.width!}
-                            />
-                        ))}
-                </Document>
-            )}
-        </SizeMe>
-    );
+export const Worship: React.FC = () => {
+  const src = "https://docs.google.com/document/d/e/2PACX-1vTAW8-9o_60X1wj-tEuc2lEU8FEF9wwry1-_lQXEmuekEaTcu0wF9NpIBePnFoVAQQWGwD7toF2prew/pub?embedded=true";
+
+  return (
+    <SizeMe monitorHeight refreshRate={128} refreshMode="debounce">
+      {({ size }) => {
+        
+        const width =
+          typeof size.width === "number" && size.width > 0 ? size.width : 800;
+
+        // A4 Ratio
+        const height = Math.round(width * 1.414);
+
+        return (
+          <div style={{ width: "100%", height, overflow: "hidden" }}>
+            <iframe
+              src={src}
+              title="Worship Lyrics"
+              style={{ width: "100%", height: "100%", border: 0 }}
+              allowFullScreen
+            />
+          </div>
+        );
+      }}
+    </SizeMe>
+  );
 };
